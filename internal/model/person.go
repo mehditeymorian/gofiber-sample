@@ -5,11 +5,11 @@ import (
 )
 
 type Person struct {
-	Name        string
-	Email       string
-	PhoneNumber string
-	Age         int
-	CreatedAt   time.Time
+	Name        string    `json:"name,omitempty"`
+	Email       string    `json:"email,omitempty"`
+	PhoneNumber string    `json:"phone_number,omitempty"`
+	Age         int       `json:"age,omitempty"`
+	CreatedAt   time.Time `json:"created_at"`
 }
 
 func NewPerson(
