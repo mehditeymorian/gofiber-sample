@@ -11,6 +11,11 @@ type Local struct {
 	people map[string]model.Person
 }
 
+func New() Local {
+	return Local{
+		people: make(map[string]model.Person),
+	}
+}
 func (l Local) Set(optionalKey string, person model.Person) (string, error) {
 	key := optionalKey
 	if key == "" {
