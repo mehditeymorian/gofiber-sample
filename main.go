@@ -7,6 +7,7 @@ import (
 	"github.com/mehditeymorian/gofiber-sample/internal/cache"
 	"github.com/mehditeymorian/gofiber-sample/internal/config"
 	"github.com/mehditeymorian/gofiber-sample/internal/http/handler"
+	"github.com/mehditeymorian/gofiber-sample/internal/http/middleware"
 )
 
 func main() {
@@ -15,6 +16,7 @@ func main() {
 	cache := cache.New()
 
 	app := fiber.New()
+	app.Use(middleware.New)
 
 	v1 := app.Group("/v1")
 	handler.People{Cache: cache}.Register(v1)
