@@ -15,7 +15,7 @@ type Log struct {
 	Data      string    `json:"data,omitempty"`
 }
 
-func New(ctx *fiber.Ctx) error {
+func NewLogger(ctx *fiber.Ctx) error {
 
 	logData := Log{
 		Type:      "request",

@@ -16,7 +16,7 @@ func main() {
 	cache := cache.New()
 
 	app := fiber.New()
-	app.Use(middleware.New)
+	app.Use(middleware.NewLogger)
 
 	v1 := app.Group("/v1")
 	handler.People{Cache: cache}.Register(v1)
