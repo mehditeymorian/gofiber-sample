@@ -27,7 +27,7 @@ func (p People) Get(ctx *fiber.Ctx) error {
 	person, err := p.Cache.Get(key)
 
 	if err != nil {
-		return fiber.NewError(http.StatusInternalServerError, err.Error())
+		return fiber.NewError(http.StatusNoContent, err.Error())
 	}
 
 	return ctx.JSON(person)
