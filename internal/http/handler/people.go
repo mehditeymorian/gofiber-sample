@@ -16,9 +16,17 @@ type People struct {
 }
 
 func (p People) Register(ctx fiber.Router) {
+	ctx.Get("/people", p.GetAll)
 	ctx.Get("/people/:key", p.Get)
 	ctx.Post("/people", p.Set)
 	ctx.Delete("/people/:key", p.Del)
+}
+
+func (p People) GetAll(ctx *fiber.Ctx) error {
+
+	people := p.Cache.GetAll()
+
+	return ctx.JSON(people)
 }
 
 func (p People) Get(ctx *fiber.Ctx) error {
