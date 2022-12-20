@@ -16,6 +16,17 @@ func New() Local {
 		people: make(map[string]model.Person),
 	}
 }
+
+func (l Local) GetAll() []model.Person {
+	people := make([]model.Person, 0)
+
+	for _, person := range l.people {
+		people = append(people, person)
+	}
+
+	return people
+}
+
 func (l Local) Set(optionalKey string, person model.Person) (string, error) {
 	key := optionalKey
 	if key == "" {
